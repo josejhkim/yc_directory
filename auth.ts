@@ -33,7 +33,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (account && profile) {
         const user = await client.fetch(AUTHOR_BY_GITHUB_ID_QUERY, { id: profile?.id });
 
-        token.id = user._id;
+        token.id = user?._id;
       }
 
       return token;
